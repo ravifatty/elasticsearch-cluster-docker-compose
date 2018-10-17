@@ -1,0 +1,67 @@
+version: "2.2"
+services:
+  elasticsearch:
+    image: elasticsearch:6.4.2
+    container_name: elasticsearch
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - /Users/kumamon/Desktop/docker/data/elasticsearch1:/usr/share/elasticsearch/data
+      - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - net-es
+
+  elasticsearch2:
+    image: elasticsearch:6.4.2
+    container_name: elasticsearch2
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - /Users/kumamon/Desktop/docker/data/elasticsearch2:/usr/share/elasticsearch/data
+      - ./config/elasticsearch2.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    ports:
+      - 9201:9200
+      - 9301:9300
+    networks:
+      - net-es
+
+  elasticsearch3:
+    image: elasticsearch:6.4.2
+    container_name: elasticsearch3
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    ports:
+      - 9202:9200
+      - 9302:9300
+    volumes:
+      - /Users/kumamon/Desktop/docker/data/elasticsearch3:/usr/share/elasticsearch/data
+      - ./config/elasticsearch3.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    networks:
+      - net-es
+
+networks:
+  net-es:

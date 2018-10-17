@@ -1,0 +1,18 @@
+cluster.name: docker-cluster
+node.name: elasticsearch2
+node.master: true
+node.data: true
+
+network.host: elasticsearch2
+http.port: 9200
+transport.tcp.port: 9300
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+discovery.zen.ping.unicast.hosts:
+  ["elasticsearch:9300", "elasticsearch2:9300", "elasticsearch3:9300"]
+discovery.zen.minimum_master_nodes: 2
+discovery.zen.ping_timeout: 5s
+
+bootstrap.memory_lock: true
+action.destructive_requires_name: true
