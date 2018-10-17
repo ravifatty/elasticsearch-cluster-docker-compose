@@ -13,7 +13,7 @@ services:
         soft: 65536
         hard: 65536
     volumes:
-      - /Users/kumamon/Desktop/docker/data/elasticsearch1:/usr/share/elasticsearch/data
+      - /data/es/elasticsearch1:/usr/share/elasticsearch/data
       - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     ports:
       - 9200:9200
@@ -34,7 +34,7 @@ services:
         soft: 65536
         hard: 65536
     volumes:
-      - /Users/kumamon/Desktop/docker/data/elasticsearch2:/usr/share/elasticsearch/data
+      - /data/es/elasticsearch2:/usr/share/elasticsearch/data
       - ./config/elasticsearch2.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     ports:
       - 9201:9200
@@ -58,7 +58,7 @@ services:
       - 9202:9200
       - 9302:9300
     volumes:
-      - /Users/kumamon/Desktop/docker/data/elasticsearch3:/usr/share/elasticsearch/data
+      - /data/es/elasticsearch3:/usr/share/elasticsearch/data
       - ./config/elasticsearch3.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     networks:
       - net-es
